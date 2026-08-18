@@ -1,10 +1,11 @@
 use std::env;
 
 use rust_null_pointer_sample::batch::{run_panic_mode, run_safe_mode};
+use rust_null_pointer_sample::null_like::direct_null_deref;
 
 fn print_help() {
     println!("Usage:");
-    println!("  --mode <safe|panic>");
+    println!("  --mode <safe|panic|null-deref>");
 }
 
 fn main() {
@@ -34,6 +35,11 @@ fn main() {
             println!("Running panic mode (will panic on None.unwrap())...");
             let lengths = run_panic_mode(&values);
             println!("Lengths: {:?}", lengths);
+        }
+        "null-deref" => {
+            println!("Running null-deref mode (intentional UB/crash demonstration)...");
+            let value = direct_null_deref();
+            println!("Read value from null pointer (undefined behavior): {}", value);
         }
         "safe" => {
             println!("Running safe mode...");

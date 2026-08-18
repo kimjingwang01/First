@@ -1,8 +1,22 @@
 use crate::errors::NullLikeError;
+use std::ptr;
 
 /// Intentionally unsafe: panics when value is None.
 pub fn panic_on_none(value: Option<String>) -> usize {
     value.unwrap().len()
+}
+
+/// Direct null pointer dereference demonstration.
+///
+/// WARNING: This is undefined behavior and is intentionally included only
+/// for educational/reproduction purposes.
+pub fn direct_null_deref() -> i32 {
+    let null_ptr: *const i32 = ptr::null();
+    unsafe {
+        let value: i32 = *null_ptr;
+        println!("value = {}", value);
+        value
+    }
 }
 
 /// Safe variant: converts None into an explicit error.
