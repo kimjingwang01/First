@@ -1,0 +1,14 @@
+[package]
+name = "rust-div-zero-sample"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_div_zero_sample"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust-div-zero-sample"
+path = "src/main.rs"
+
+[dependencies]
