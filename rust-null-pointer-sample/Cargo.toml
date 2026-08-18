@@ -1,0 +1,14 @@
+[package]
+name = "rust-null-pointer-sample"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_null_pointer_sample"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rust-null-pointer-sample"
+path = "src/main.rs"
+
+[dependencies]
